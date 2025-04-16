@@ -22,6 +22,7 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 - [ ] Better Admin panel: Edit NS Record for specific sub-domain, etc.
 - [ ] 2FA
 - [ ] DNSSEC
+- [ ] Change global domain limits on Admin panel
 
 
 # Configuration
