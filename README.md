@@ -9,12 +9,12 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 
 # Configuration
 
-# Step 1: Creating and Importing Database
+## Step 1: Creating and Importing Database
 Create a MySQL database in your server, and import `cloudflareNIC.sql`. Make sure to take note of your database name, username and password.
 
-# Step 2: Configuring `config.php`
+## Step 2: Configuring `config.php`
 
-## 1. Database Configuration
+### 1. Database Configuration
 
 Update the following constants with your database credentials:
 
@@ -27,7 +27,7 @@ define('DB_NAME', 'your-database-name');
 
 ---
 
-## 2. Registrar System Setup
+### 2. Registrar System Setup
 
 Replace the following with your domain details:
 
@@ -39,7 +39,7 @@ define('REGISTRAR_DOMAIN', 'registrar.example.com');  // Domain of the registrar
 
 ---
 
-## 3. Cloudflare Setup
+### 3. Cloudflare Setup
 
 Create a scoped API token with permissions for DNS:Read and DNS:Edit for your domain.
 
@@ -52,7 +52,7 @@ Find your zone ID on the Overview tab for your domain in the Cloudflare dashboar
 
 ---
 
-## 4. HCaptcha Integration
+### 4. HCaptcha Integration
 
 Set up HCaptcha for bot protection.
 
@@ -65,7 +65,7 @@ Get these from your [hCaptcha dashboard](https://dashboard.hcaptcha.com/).
 
 ---
 
-## 5. Google Login Setup
+### 5. Google Login Setup
 
 Enable OAuth on [Google Cloud Console](https://console.cloud.google.com/) and get your credentials.
 A more detailed guide is available at [Setting Up Google Login]([https://console.cloud.google.com/](https://documentation.commerce7.com/how-do-i-setup-google-login))
@@ -83,7 +83,7 @@ https://your-registrar-domain.com/oauth_callback.php
 
 ---
 
-## Final Step
+### Final Step
 
 After updating all the placeholders in `config.php`, save and deploy your application. Ensure file permissions and API scopes are properly set.
 
