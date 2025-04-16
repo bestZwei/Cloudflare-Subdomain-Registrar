@@ -49,7 +49,7 @@ define('CLOUDFLARE_API_KEY', 'your-cloudflare-api-token');
 define('CLOUDFLARE_ZONE_ID', 'your-cloudflare-zone-id');
 ```
 
-在 [hCaptcha 控制台](https://dash.cloudflare.com/profile/api-tokens) 获取 API Token。
+在 [Cloudflare 控制台](https://dash.cloudflare.com/profile/api-tokens) 获取 API Token。
 你可以在 Cloudflare 控制面板的域名“概览”栏目中找到 Zone ID。
 
 ---
