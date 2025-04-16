@@ -72,7 +72,9 @@ Get these from your [hCaptcha dashboard](https://dashboard.hcaptcha.com/).
 ### 5. Google Login Setup
 
 Enable OAuth on [Google Cloud Console](https://console.cloud.google.com/) and get your credentials.
+
 A more detailed guide is available at [Setting Up Google Login](https://documentation.commerce7.com/how-do-i-setup-google-login)
+
 Follow the guide up until step 1 in the guide, you will have all of the informations you need for this step.
 
 ```php
