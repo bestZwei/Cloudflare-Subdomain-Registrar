@@ -7,8 +7,21 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 # To-Do List
 
 - [x] Multi-Lingual Support
-- [ ] Edit NS Server Record
+- [ ] Extend Google Login to username-password login w/ E-mail verification
+- [ ] Edit NS Record Record
+- [ ] Multiple NS Record Support
 - [ ] Multi-Domain Support
+- [ ] Domain Name Status (ability to require registerations to be approved, suspend/cancel sub-domains)
+- [ ] Domain Name Registeration Duration (ability to allow users to register domains for a certain amount of years and renew) e.g. cron.php
+- [ ] Account Status (ability to suspend/cancel accounts)
+- [ ] Whois Lookup (with on-site contact form to domain owner) / User Contact Information
+- [ ] Payment system integration Paypal, Crypto, Alipay, Wechat pay(ability to purchase premium [can be regexed] sub-domains) 
+- [ ] Support for more DNS providers (he.net, cloudns, tencent cloud, alicloud)
+- [ ] Mailing API for system to notify user of domain status
+- [ ] Support for users to add other records like A, CNAME, etc. Allow users to enable Cloudflare proxy(may not be feasible, Cloudflare ToS)
+- [ ] Better Admin panel: Edit NS Record for specific sub-domain, etc.
+- [ ] 2FA
+- [ ] DNSSEC
 
 
 # Configuration
