@@ -1,6 +1,12 @@
 # SubdomainRegistrarCloudflare
 A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS.
 
+# To-Do List
+
+- [ ] Multi-Lingual Support
+- [ ] Multi-Domain Support
+
+
 # Step 1: Creating and Importing Database
 Create a MySQL database in your server, and import `cloudflareNIC.sql`. Make sure to take note of your database name, username and password.
 
