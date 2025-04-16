@@ -8,6 +8,7 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 
 
 # Configuration
+PLEASE READ AND FOLLOW THE STEPS CAREFULLY.
 
 ## Step 1: Creating and Importing Database
 Create a MySQL database in your server, and import `cloudflareNIC.sql`. Make sure to take note of your database name, username and password.
@@ -83,9 +84,9 @@ https://your-registrar-domain.com/oauth_callback.php
 
 ---
 
-### Final Step
+## Step 3: Update User Role in MySQL Table
+You need to manually update the MySQL entry once you logged in with your Google account, change the `role` field of your user record from `user` to `admin`. After this step, log out and log back in you will be able to access the Admin panel. 
 
-After updating all the placeholders in `config.php`, save and deploy your application. Ensure file permissions and API scopes are properly set.
 
 
 
