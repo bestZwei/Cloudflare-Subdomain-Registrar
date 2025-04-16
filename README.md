@@ -51,7 +51,7 @@ Create a scoped API token with permissions for DNS:Read and DNS:Edit for your do
 define('CLOUDFLARE_API_KEY', 'your-cloudflare-api-token');
 define('CLOUDFLARE_ZONE_ID', 'your-cloudflare-zone-id');
 ```
-Get API Token From [hCaptcha dashboard]([https://dashboard.hcaptcha.com/](https://dash.cloudflare.com/profile/api-tokens).
+Get API Token From [Cloudflare dashboard](https://dash.cloudflare.com/profile/api-tokens).
 Find your zone ID on the Overview tab for your domain in the Cloudflare dashboard.
 
 ---
