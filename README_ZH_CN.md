@@ -1,4 +1,4 @@
-# SubdomainRegistrarCloudflare
+# 基于Cloudflare的二级域名分发系统
 一个基于 Cloudflare DNS 的子域名注册和管理 PHP 程序。
 
 # 待办事项
