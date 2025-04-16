@@ -1,10 +1,32 @@
-<?php include 'config/config.php'; ?>
+<?php 
+include 'config/config.php'; 
+
+session_start();
+
+include "lang/function.php";
+
+// Language
+if($_SESSION['language']){
+}else{
+	$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 4); 
+    if(preg_match("/zh-c/i", $lang)){
+	    $_SESSION["language"] = "zh";
+    }elseif(preg_match("/en/i", $lang)){
+		$_SESSION["language"] = "en";
+    }else{
+	    $_SESSION["language"] = 'en';
+    }
+}
+$language_name = getLanguageName($_SESSION["language"]);
+include "lang/lang/".$language_name.".php";
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo $_SESSION["language"]; ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - <?php echo DOMAIN_NAME_UP; ?> Registrar</title>
+    <title>Login - <?php echo DOMAIN_NAME_UP; ?> <?php echo $l_registrar?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -42,22 +64,30 @@
         <div class="login-container">
             <div class="card">
                 <div class="card-header text-center">
-                    <h4 class="mb-0"><?php echo DOMAIN_NAME_UP; ?> Registrar</h4>
+                    <h4 class="mb-0"><?php echo DOMAIN_NAME_UP; ?> <?php echo $l_registrar?></h4>
                 </div>
                 <div class="card-body">
                     <ul class="nav nav-tabs" id="authTabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="login-tab" data-toggle="tab" role="tab">Login/Register</a>
+                            <a class="nav-link active" id="login-tab" data-toggle="tab" role="tab"><?php echo $l_loginorreg; ?></a>
                         </li>
                     </ul>
                     <div class="tab-content mt-3" id="authTabsContent">
                         <!-- Login Form -->
                         <div class="tab-pane fade show active" id="login" role="tabpanel">
                             <a href="google_login.php">
-		                        <img src="/views/signinwithgoogle.png" alt="Sign in with Google" class="google-signin-btn img-fluid"> 
+		                        <img src="/views/<?php echo $l_loginwgoogle; ?>" alt="Sign in with Google" class="google-signin-btn img-fluid"> 
 		                    </a>
                         </div>
                     </div>
+                    <div class="d-flex justify-content-center my-4">
+	                    <a href="/lang/langswitch.php?url=views/dashboard.php&language=en" class="btn btn-light rounded-circle mx-2 d-flex align-items-center justify-content-center" style="width:50px; height:50px;">
+					        <img src="https://flagcdn.com/w40/us.png" alt="English" style="width:30px; height:auto;">
+					    </a>
+					    <a href="/lang/langswitch.php?url=views/dashboard.php&language=zh" class="btn btn-light rounded-circle mx-2 d-flex align-items-center justify-content-center" style="width:50px; height:50px;">
+					        <img src="https://flagcdn.com/w40/cn.png" alt="Chinese" style="width:30px; height:auto;">
+					    </a>
+					</div>
                 </div>
             </div>
         </div>

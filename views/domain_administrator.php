@@ -7,6 +7,24 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
     exit();
 }
 require_once '../config/config.php';
+
+include "../lang/function.php";
+
+// Language
+if($_SESSION['language']){
+}else{
+	$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 4); 
+    if(preg_match("/zh-c/i", $lang)){
+	    $_SESSION["language"] = "zh";
+    }elseif(preg_match("/en/i", $lang)){
+		$_SESSION["language"] = "en";
+    }else{
+	    $_SESSION["language"] = 'en';
+    }
+}
+$language_name = getLanguageName($_SESSION["language"]);
+include "../lang/lang/".$language_name.".php";
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +32,7 @@ require_once '../config/config.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title><?php echo $l_admindashboard; ?></title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
@@ -22,34 +40,34 @@ require_once '../config/config.php';
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="/"><?php echo DOMAIN_NAME_UP; ?> Registrar</a>
+            <a class="navbar-brand" href="/"><?php echo DOMAIN_NAME_UP; ?> <?php echo $l_registrar; ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link" href="logout.php"><?php echo $l_logout; ?></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div class="container mt-5">
-        <h1 class="text-center">Admin Dashboard</h1>
+        <h1 class="text-center"><?php echo $l_admindashboard; ?></h1>
 
         <!-- List of Users -->
         <div class="card mb-4">
-            <div class="card-header">Users</div>
+            <div class="card-header"><?php echo $l_users; ?></div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>User ID</th>
-                            <th>Username</th>
-                            <th>Role</th>
-                            <th>Domain Limit</th>
-                            <th>Actions</th>
+                            <th><?php echo $l_userid; ?></th>
+                            <th><?php echo $l_username; ?></th>
+                            <th><?php echo $l_role; ?></th>
+                            <th><?php echo $l_dlimit; ?></th>
+                            <th><?php echo $l_action; ?></th>
                         </tr>
                     </thead>
                     <tbody id="userList">
@@ -66,10 +84,10 @@ require_once '../config/config.php';
                 <table class="table">
                     <thead>
                         <tr>
-	                        <th>User ID</th>
-                            <th>Subdomain</th>
-                            <th>NS Server</th>
-                            <th>Action</th>
+	                        <th><?php echo $l_userid; ?></th>
+                            <th><?php echo $l_subdomain; ?></th>
+                            <th><?php echo $l_nsrecord; ?></th>
+                            <th><?php echo $l_action; ?></th>
                         </tr>
                     </thead>
                     <tbody id="domainList">
@@ -81,27 +99,27 @@ require_once '../config/config.php';
         
         <!-- Add Banned Subdomain -->
         <div class="card mb-4">
-            <div class="card-header">Add Banned Subdomain</div>
+            <div class="card-header"><?php echo $l_addbannedsubdomain; ?></div>
             <div class="card-body">
                 <form id="banSubdomainForm">
                     <div class="form-group">
-                        <label for="bannedSubdomain">Subdomain:</label>
+                        <label for="bannedSubdomain"><?php echo $l_subdomain; ?>:</label>
                         <input type="text" id="bannedSubdomain" name="bannedSubdomain" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-danger">Ban Subdomain</button>
+                    <button type="submit" class="btn btn-danger"><?php echo $l_bansubdomain; ?></button>
                 </form>
             </div>
         </div>
 
         <!-- List of Banned Subdomains -->
         <div class="card mb-4">
-            <div class="card-header">Banned Subdomains</div>
+            <div class="card-header"><?php echo $l_bannedsubdomains; ?></div>
             <div class="card-body">
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>Subdomain</th>
-                            <th>Action</th>
+                            <th><?php echo $l_subdomain; ?></th>
+                            <th><?php echo $l_action; ?></th>
                         </tr>
                     </thead>
                     <tbody id="bannedSubdomainList">
@@ -141,8 +159,8 @@ require_once '../config/config.php';
 			                        <td>${user.role}</td>
 			                        <td>${user.subdomain_limit}</td>
 			                        <td>
-			                            <button class="btn btn-primary btn-sm update-limit" data-user-id="${user.id}">Update Limit</button>
-			                            ${user.role !== 'admin' ? `<button class="btn btn-danger btn-sm delete-user" data-user-id="${user.id}">Delete</button>` : ''}
+			                            <button class="btn btn-primary btn-sm update-limit" data-user-id="${user.id}"><?php echo $l_updatelimit; ?></button>
+			                            ${user.role !== 'admin' ? `<button class="btn btn-danger btn-sm delete-user" data-user-id="${user.id}"><?php echo $l_delete; ?></button>` : ''}
 			                        </td>
 			                    </tr>
 			                `;
@@ -167,14 +185,14 @@ require_once '../config/config.php';
             $(document).on('click', '.update-limit', function() {
                 const userId = $(this).data('user-id');
                 Swal.fire({
-                    title: 'Update Domain Limit',
+                    title: '<?php echo $l_updatedomainlimit; ?>',
                     input: 'number',
-                    inputLabel: 'New Domain Limit',
-                    inputPlaceholder: 'Enter new domain limit',
+                    inputLabel: '<?php echo $l_newdomainlimit; ?>',
+                    inputPlaceholder: '<?php echo $l_enternewdomainlimit; ?>',
                     showCancelButton: true,
                     inputValidator: (value) => {
                         if (!value) {
-                            return 'You need to enter a number!';
+                            return '<?php echo $l_enternumbererr; ?>!';
                         }
                     }
                 }).then((result) => {
@@ -201,7 +219,7 @@ require_once '../config/config.php';
                                 <tr>
                                     <td>${subdomain.subdomain}</td>
                                     <td>
-                                        <button class="btn btn-danger btn-sm delete-banned-subdomain" data-subdomain-id="${subdomain.id}">Delete</button>
+                                        <button class="btn btn-danger btn-sm delete-banned-subdomain" data-subdomain-id="${subdomain.id}"><?php echo $l_delete; ?></button>
                                     </td>
                                 </tr>
                             `;
@@ -235,7 +253,7 @@ require_once '../config/config.php';
                                     <td>${domain.subdomain}</td>
                                     <td>${domain.nsserver}</td>
                                     <td>
-                                        <button class="btn btn-danger btn-sm delete-domain" data-subdomain="${domain.subdomain}">Delete</button>
+                                        <button class="btn btn-danger btn-sm delete-domain" data-subdomain="${domain.subdomain}"><?php echo $l_delete; ?></button>
                                     </td>
                                 </tr>
                             `;
