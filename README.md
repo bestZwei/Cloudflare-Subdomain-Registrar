@@ -3,6 +3,7 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 
 # To-Do List
 
+- [ ] Edit NS Server Record
 - [ ] Multi-Lingual Support
 - [ ] Multi-Domain Support
 
