@@ -24,7 +24,7 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 - [ ] DNSSEC
 - [ ] Change global domain limits on Admin panel
 - [ ] Program setup script
-- [ ] Localize assets
+- [ ] Localize assets(some asset cdn not global access friendly)
 
 
 # Configuration
