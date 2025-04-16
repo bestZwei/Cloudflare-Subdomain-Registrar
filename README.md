@@ -1,5 +1,7 @@
 # SubdomainRegistrarCloudflare
 A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS.
+[中文README](https://github.com/KevvTheGoat/SubdomainRegistrarCloudflare/blob/main/README_ZH_CN.md)
+
 
 # To-Do List
 
