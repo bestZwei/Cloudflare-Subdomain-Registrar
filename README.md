@@ -17,13 +17,14 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 - [ ] Whois Lookup (with on-site contact form to domain owner) / User Contact Information
 - [ ] Payment system integration Paypal, Crypto, Alipay, Wechat pay(ability to purchase premium [specified or regex] sub-domains) 
 - [ ] Support for more DNS providers (he.net, cloudns, tencent cloud, alicloud)
-- [ ] Mailing API for system to notify user of domain status
+- [ ] Mailing API for system to notify user of domain status. SMTP and Support for mailer API(mailjet, mailgun, etc.)
 - [ ] Support for users to add other records like A, CNAME, etc. Allow users to enable Cloudflare proxy(may not be feasible, Cloudflare ToS)
 - [ ] Better Admin panel: Edit NS Record for specific sub-domain, etc.
 - [ ] 2FA
 - [ ] DNSSEC
 - [ ] Change global domain limits on Admin panel
 - [ ] Program setup script
+- [ ] Localize assets
 
 
 # Configuration
