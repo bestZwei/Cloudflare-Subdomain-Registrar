@@ -7,8 +7,28 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 # To-Do List
 
 - [x] Multi-Lingual Support
-- [ ] Edit NS Server Record
+- [ ] Extend Google Login to username-password login w/ E-mail verification
+- [ ] Multiple NS Record Support
 - [ ] Multi-Domain Support
+- [ ] Domain Name Registeration Duration (ability to allow users to register domains for a certain amount of years and renew) e.g. cron.php
+- [ ] Whois Lookup (with on-site contact form to domain owner) / User Contact Information
+- [ ] Payment system integration Paypal, Crypto, Alipay, Wechat pay(ability to purchase premium [specified or regex] sub-domains) 
+- [ ] Support for more DNS providers (he.net, cloudns, tencent cloud, alicloud)
+- [ ] Mailing API for system to notify user of domain status. SMTP and Support for mailer API(mailjet, mailgun, etc.)
+- [ ] Support for users to add other records like A, CNAME, etc. Allow users to enable Cloudflare proxy(may not be feasible, Cloudflare ToS)
+- [ ] 2FA
+- [ ] DNSSEC
+- [ ] Change global domain limits on Admin panel
+- [ ] Localize assets(some asset cdn not global access friendly)
+- [ ] Better theme
+
+# Next Update
+- [x] Edit NS Record Record
+- [ ] Program setup script
+- [ ] Account Status (ability to suspend/cancel accounts)
+- [ ] Domain Name Status (ability to require registerations to be approved, suspend/cancel sub-domains)
+- [ ] Better Admin panel: Edit NS Record for specific sub-domain, etc.
+
 
 
 # Configuration
@@ -95,6 +115,20 @@ You need to manually update the MySQL entry once you logged in with your Google 
 
 
 
+# License
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+                    Version 2, December 2004
+
+ Copyright (C) 2025 Kevin
+
+ Everyone is permitted to copy and distribute verbatim or modified
+ copies of this license document, and changing it is allowed as long
+ as the name is changed.
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
 
 
 
