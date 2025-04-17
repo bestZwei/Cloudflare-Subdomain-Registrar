@@ -23,7 +23,7 @@ A PHP Program For Subdomain Registeration And Management Based On Cloudflare DNS
 - [ ] Better theme
 
 # Next Update
-- [ ] Edit NS Record Record
+- [x] Edit NS Record Record
 - [ ] Program setup script
 - [ ] Account Status (ability to suspend/cancel accounts)
 - [ ] Domain Name Status (ability to require registerations to be approved, suspend/cancel sub-domains)
